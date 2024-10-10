@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/', messageRouter);
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Starting server at localhost:${PORT}`);
 });

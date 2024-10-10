@@ -16,13 +16,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const pg_1 = require("pg");
-const now = new Date().toISOString().slice(0, 10);
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   message VARCHAR(255),
   username VARCHAR(255),
-  added DATE
+  added TIMESTAMP
 );
 
 INSERT INTO messages (message, username, added)
@@ -56,5 +55,3 @@ function main() {
     });
 }
 main();
-// "postgresql://<role_name>:<role_password>@localhost:5432/top_users"
-// postgresql://postgres:KDRojllrJSwHcpzmlGiwaBYrfRpvdoLA@postgres-ime5.railway.internal:5432/railway

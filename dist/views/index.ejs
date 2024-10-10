@@ -7,10 +7,10 @@
 <body>
   <h1><%= title %></h1>
   <ul>
-    <% messages.map((message, idx) => { %>
-      <li data-idx="<%= idx %>">
-        <%= `${message.user}: ${message.text}` %>
-        <form action="/message/<%= idx %>" method="GET">
+    <% messages.map((message) => { %>
+      <li>
+        <%=`${message.username}: ${message.message}`%>
+        <form action="/message/<%= message.id %>" method="GET">
           <button type="submit">Open</button>
         </form>
       </li>
